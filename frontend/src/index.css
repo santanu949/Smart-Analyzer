@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700&family=Space+Grotesk:wght@500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply antialiased text-zinc-900 bg-zinc-50;
+  }
+}
+
+@layer components {
+  /* Public Interface Components */
+  .glass-panel {
+    @apply bg-white/40 backdrop-blur-2xl border border-white/20 shadow-[0_24px_48px_-12px_rgba(0,0,0,0.08)] rounded-2xl;
+  }
+  
+  .public-container {
+    @apply max-w-7xl mx-auto px-6 sm:px-8 lg:px-12;
+  }
+
+  /* Admin Dashboard Components / Tactical */
+  .tactical-border {
+    @apply border border-tactical-border/20;
+  }
+  
+  .tactical-glow {
+    @apply shadow-[inset_0_0_0_1px_rgba(0,203,230,0.2)];
+  }
+
+  .tactical-text-glow {
+    text-shadow: 0 0 2px rgba(0,203,230,0.5);
+  }
+
+  .admin-input {
+    @apply bg-tactical-containerHigh border-b border-tactical-border/20 text-brand-cyan placeholder:text-tactical-textDim focus:outline-none focus:border-brand-cyan shadow-[0_0_0_0px_rgba(0,203,230,0)] focus:shadow-[0_0_4px_0px_rgba(0,203,230,0.5)] transition-all duration-200 px-3 py-2 font-mono uppercase text-xs tracking-tactical;
+  }
+}
