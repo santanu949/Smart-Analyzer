@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
-const Navbar = ({ onContactClick, onAdminClick }) => {
+const Navbar = ({ onAdminClick }) => {
   return (
     <div className="fixed top-6 left-0 right-0 z-50 px-4 sm:px-6 lg:px-12 flex justify-center pointer-events-none">
       <nav className="w-full max-w-[1400px] bg-white/90 backdrop-blur-md border border-gray-200 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.04)] pointer-events-auto" data-testid="navbar">
@@ -35,23 +35,9 @@ const Navbar = ({ onContactClick, onAdminClick }) => {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={onAdminClick}
-              className="hidden md:block px-6 py-2.5 bg-black text-white text-sm font-medium rounded-full hover:bg-gray-900 transition-colors"
+              className="px-6 py-2.5 bg-black text-white text-sm font-medium rounded-full hover:bg-gray-900 transition-colors"
             >
               Admin Login
-            </motion.button>
-            <button className="hidden md:block p-2 text-gray-600 hover:text-gray-900 transition-colors" data-testid="language-btn">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
-              </svg>
-            </button>
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              onClick={onContactClick}
-              className="px-6 py-2.5 bg-black text-white text-sm font-medium rounded-full hover:bg-gray-900 transition-colors"
-              data-testid="connect-wallet-btn"
-            >
-              Connect Us
             </motion.button>
           </div>
         </div>

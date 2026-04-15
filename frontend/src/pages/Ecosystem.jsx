@@ -13,13 +13,13 @@ const Ecosystem = () => {
     <div className="min-h-screen relative bg-white" data-testid="ecosystem-page">
       {/* Animated Background from Landing Page */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-blue-100/60 mix-blend-multiply filter blur-[120px] opacity-70 animate-pulse" style={{ animationDuration: '8s' }}></div>
-        <div className="absolute top-[10%] right-[-10%] w-[40vw] h-[40vw] rounded-full bg-purple-100/60 mix-blend-multiply filter blur-[120px] opacity-70 animate-pulse" style={{ animationDuration: '10s', animationDelay: '2s' }}></div>
-        <div className="absolute bottom-[-20%] left-[20%] w-[60vw] h-[60vw] rounded-full bg-emerald-100/40 mix-blend-multiply filter blur-[120px] opacity-70 animate-pulse" style={{ animationDuration: '12s', animationDelay: '4s' }}></div>
+        <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-blue-300/80 mix-blend-multiply filter blur-[120px] opacity-70 animate-pulse" style={{ animationDuration: '8s' }}></div>
+        <div className="absolute top-[10%] right-[-10%] w-[40vw] h-[40vw] rounded-full bg-purple-300/80 mix-blend-multiply filter blur-[120px] opacity-70 animate-pulse" style={{ animationDuration: '10s', animationDelay: '2s' }}></div>
+        <div className="absolute bottom-[-20%] left-[20%] w-[60vw] h-[60vw] rounded-full bg-emerald-200/60 mix-blend-multiply filter blur-[120px] opacity-70 animate-pulse" style={{ animationDuration: '12s', animationDelay: '4s' }}></div>
       </div>
 
       <div className="relative z-10">
-        <Navbar onContactClick={() => setContactOpen(true)} onAdminClick={() => setAdminLoginOpen(true)} />
+        <Navbar onAdminClick={() => setAdminLoginOpen(true)} />
 
         {/* Hero Section */}
         <section className="pt-40 pb-20 px-6 lg:px-12 bg-transparent">
@@ -29,14 +29,14 @@ const Ecosystem = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] text-gray-400 mb-6 font-mono">
+            <p className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] text-slate-700 mb-6 font-mono">
               PRECISION TRANSPARENCY
             </p>
-            <h1 className="text-6xl md:text-8xl font-bold tracking-tighter mb-8 leading-[0.9]">
-              <span className="text-gray-900 block">The Nexus</span>
-              <span className="text-gray-200 block mt-2">Ecosystem</span>
+            <h1 className="text-6xl md:text-8xl font-extrabold tracking-tighter mb-8 leading-[0.9]">
+              <span className="text-slate-950 block">The Nexus</span>
+              <span className="text-slate-200 block mt-2 drop-shadow-sm">Ecosystem</span>
             </h1>
-            <p className="text-lg md:text-xl text-gray-500 max-w-3xl mx-auto leading-relaxed mb-10">
+            <p className="text-lg md:text-xl text-slate-800 max-w-3xl mx-auto leading-relaxed mb-10 font-medium">
               A multi-layered architecture of interconnected security products, automated
               <br className="hidden md:block" /> audit engines, and real-time guard protocols designed for the next
               <br className="hidden md:block" /> generation of decentralized finance.
@@ -69,10 +69,10 @@ const Ecosystem = () => {
         <div className="max-w-[1400px] mx-auto">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 tracking-tight">Foundation Layers</h2>
-              <p className="text-gray-500 max-w-lg">Three pillars of security automated by high-performance AI engines.</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-950 mb-4 tracking-tight">Foundation Layers</h2>
+              <p className="text-slate-800 max-w-lg font-medium">Three pillars of security automated by high-performance AI engines.</p>
             </div>
-            <div className="mt-6 md:mt-0 text-xs font-mono tracking-widest text-gray-400 uppercase">
+            <div className="mt-6 md:mt-0 text-xs font-mono tracking-widest text-slate-700 uppercase font-bold">
               Nexus Core V2.0
             </div>
           </div>
@@ -91,14 +91,14 @@ const Ecosystem = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Scan Engine</h3>
-                <p className="text-gray-500 leading-relaxed text-sm">
+                <h3 className="text-2xl font-bold text-slate-950 mb-4">Scan Engine</h3>
+                <p className="text-slate-800 leading-relaxed text-sm font-medium">
                   Millisecond latency static analysis across 50+ smart contract vulnerabilities including reentrancy and overflow.
                 </p>
               </div>
-              <div className="flex items-center justify-between pt-6 border-t border-gray-100 mt-8">
-                <span className="text-[10px] font-bold text-gray-400 tracking-wider">UPTIME</span>
-                <span className="text-sm font-bold text-gray-900">99.9%</span>
+              <div className="flex items-center justify-between pt-6 border-t border-slate-100 mt-8">
+                <span className="text-[10px] font-bold text-slate-700 tracking-wider">UPTIME</span>
+                <span className="text-sm font-bold text-slate-950">99.9%</span>
               </div>
             </motion.div>
 
@@ -156,12 +156,12 @@ const Ecosystem = () => {
       </section>
 
       {/* Multi-Chain Native */}
-      <section className="py-24 px-6 lg:px-12 bg-transparent border-t border-gray-100/50">
+      <section className="py-24 px-6 lg:px-12 bg-transparent border-t border-slate-100/50">
         <div className="max-w-[1400px] mx-auto text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Multi-Chain Native</h2>
-          <p className="text-gray-500 mb-12 text-sm max-w-xl mx-auto">Seamlessly integrated with leading blockchain infrastructures and development environments.</p>
+          <h2 className="text-3xl font-bold text-slate-950 mb-4">Multi-Chain Native</h2>
+          <p className="text-slate-800 mb-12 text-sm max-w-xl mx-auto font-medium">Seamlessly integrated with leading blockchain infrastructures and development environments.</p>
           
-          <div className="flex flex-wrap justify-center gap-0 max-w-5xl mx-auto border border-gray-100 bg-white rounded-2xl overflow-hidden shadow-sm">
+          <div className="flex flex-wrap justify-center gap-0 max-w-5xl mx-auto border border-slate-100 bg-white rounded-2xl overflow-hidden shadow-sm">
             {[
               { name: 'ETHEREUM', icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 2l4 10-4 3-4-3 4-10zM12 22l4-5-4-3-4 3 4 5z" /> },
               { name: 'POLYGON', icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 14l8 4 8-4-8-4-8 4v-4l8 4 8-4-8-4-8 4v4z" /> },
@@ -169,13 +169,13 @@ const Ecosystem = () => {
               { name: 'BASENET', icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M5 6l7-3 7 3M4 18h16m-2-4H6l-2 4h16l-2-4z" /> },
               { name: 'FOUNDRY', icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /> }
             ].map((chain, i) => (
-              <div key={i} className={`flex-1 min-w-[160px] py-10 flex flex-col items-center justify-center ${i !== 0 ? 'border-l border-gray-100' : ''}`}>
-                <div className="w-10 h-10 mb-4 text-gray-300">
+              <div key={i} className={`flex-1 min-w-[160px] py-10 flex flex-col items-center justify-center ${i !== 0 ? 'border-l border-slate-100' : ''}`}>
+                <div className="w-10 h-10 mb-4 text-slate-400">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="w-full h-full">
                     {chain.icon}
                   </svg>
                 </div>
-                <span className="text-[10px] font-bold text-gray-900 tracking-widest">{chain.name}</span>
+                <span className="text-[10px] font-bold text-slate-950 tracking-widest">{chain.name}</span>
               </div>
             ))}
           </div>
@@ -243,9 +243,9 @@ const Ecosystem = () => {
               viewport={{ once: true }}
             >
               <div className="mb-8">
-                <p className="text-[10px] font-bold text-gray-400 tracking-widest uppercase mb-4">BUILT WITH AUTHORITY</p>
-                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">Engineered for<br/>Builders</h2>
-                <p className="text-gray-500 text-lg leading-relaxed">
+                <p className="text-[10px] font-bold text-slate-700 tracking-widest uppercase mb-4">BUILT WITH AUTHORITY</p>
+                <h2 className="text-4xl md:text-5xl font-bold text-slate-950 mb-6 tracking-tight">Engineered for<br/>Builders</h2>
+                <p className="text-slate-800 text-lg leading-relaxed font-medium">
                   Integrate NexusScan directly into your CI/CD pipelines. Our SDKs and command-line interfaces provide the same clinical precision as our web dashboard.
                 </p>
               </div>

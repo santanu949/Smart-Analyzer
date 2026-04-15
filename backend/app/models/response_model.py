@@ -1,14 +1,19 @@
 from pydantic import BaseModel
-from typing import List
+from typing import List, Optional
 
 class Vulnerability(BaseModel):
-    name: str
+    type: str
+    severity: str
     explanation: str
-    risk_level: str
-    suggested_fix: str
+    impact: Optional[str] = None
+    fix: str
+    attack_flow: Optional[List[str]] = None
+    code_fix: Optional[str] = None
+    simulation: Optional[List[str]] = None
 
 class AnalysisRequest(BaseModel):
     code: str
+    mode: str = "groq" # Default to standard mode
 
 class AnalysisResponse(BaseModel):
     vulnerabilities: List[Vulnerability]

@@ -69,23 +69,52 @@ export const ContactModal = ({ isOpen, onClose }) => {
 export const LoginModal = ({ isOpen, onClose, onLoginSuccess }) => {
   const [credentials, setCredentials] = useState({ userId: '', password: '' });
   const [status, setStatus] = useState('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleLogin = async (e) => {
     e.preventDefault();
     setStatus('loading');
+    setErrorMessage('');
+
+    if (!GAS_URL || GAS_URL.includes('YOUR_APPS_SCRIPT_ID') || GAS_URL.includes('PASTE_YOUR_GOOGLE_SCRIPT_URL_HERE')) {
+      setStatus('error');
+      setErrorMessage('System Config Error: Please paste your actual Google Script URL into frontend/.env');
+      return;
+    }
+
     try {
       // Changed to GET request formatting to match your GAS script
       const authUrl = `${GAS_URL}?type=auth&user=${encodeURIComponent(credentials.userId)}&pass=${encodeURIComponent(credentials.password)}`;
       const response = await fetch(authUrl);
+      
+      const contentType = response.headers.get("content-type");
+      if (contentType && !contentType.includes("application/json")) {
+        throw new Error("Server returned HTML/Text instead of JSON. Check if your GAS script is deployed to 'Anyone'.");
+      }
+
+      if (!response.ok) {
+        throw new Error(`Network failure (${response.status})`);
+      }
+
       const data = await response.json();
       
       if (data.success) {
         onLoginSuccess();
       } else {
         setStatus('error');
+        setErrorMessage(data.message || 'Invalid credentials. Access denied.');
       }
     } catch (err) {
+      console.error("Transmission Failure:", err);
       setStatus('error');
+      
+      if (err.message.includes('Unexpected token') || err.message.includes('JSON')) {
+        setErrorMessage('Format Error: Received HTML instead of JSON. Ensure GAS is deployed to "Anyone".');
+      } else {
+        setErrorMessage(err.message.includes('fetch') 
+          ? 'Connection Error: Secure upland failed. Check CORS/Network.' 
+          : `System Error: ${err.message}`);
+      }
     }
   };
 
@@ -101,7 +130,7 @@ export const LoginModal = ({ isOpen, onClose, onLoginSuccess }) => {
         <form onSubmit={handleLogin} className="space-y-4">
           <input required type="text" placeholder="User ID" className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-xl focus:outline-none focus:border-emerald-500 text-white font-mono text-sm" onChange={e => setCredentials({...credentials, userId: e.target.value})} />
           <input required type="password" placeholder="Password" className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-xl focus:outline-none focus:border-emerald-500 text-white font-mono text-sm" onChange={e => setCredentials({...credentials, password: e.target.value})} />
-          {status === 'error' && <p className="text-red-400 text-xs font-mono">Invalid credentials. Access denied.</p>}
+          {status === 'error' && <p className="text-red-400 text-[10px] font-mono leading-tight bg-red-500/10 p-2 rounded-lg border border-red-500/20">{errorMessage}</p>}
           
           <button disabled={status === 'loading'} type="submit" className="w-full py-3 bg-emerald-500 text-black font-bold rounded-xl hover:bg-emerald-400 transition-colors uppercase tracking-widest text-sm font-mono mt-4">
             {status === 'loading' ? 'Verifying...' : 'Authorize'}

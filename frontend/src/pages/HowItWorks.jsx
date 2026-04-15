@@ -13,26 +13,26 @@ const HowItWorks = () => {
     <div className="min-h-screen relative bg-white" data-testid="how-it-works-page">
       {/* Animated Shared Background */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-blue-100/60 mix-blend-multiply filter blur-[120px] opacity-70 animate-pulse" style={{ animationDuration: '8s' }}></div>
-        <div className="absolute top-[10%] right-[-10%] w-[40vw] h-[40vw] rounded-full bg-purple-100/60 mix-blend-multiply filter blur-[120px] opacity-70 animate-pulse" style={{ animationDuration: '10s', animationDelay: '2s' }}></div>
-        <div className="absolute bottom-[-20%] left-[20%] w-[60vw] h-[60vw] rounded-full bg-emerald-100/40 mix-blend-multiply filter blur-[120px] opacity-70 animate-pulse" style={{ animationDuration: '12s', animationDelay: '4s' }}></div>
+        <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-blue-300/80 mix-blend-multiply filter blur-[120px] opacity-70 animate-pulse" style={{ animationDuration: '8s' }}></div>
+        <div className="absolute top-[10%] right-[-10%] w-[40vw] h-[40vw] rounded-full bg-purple-300/80 mix-blend-multiply filter blur-[120px] opacity-70 animate-pulse" style={{ animationDuration: '10s', animationDelay: '2s' }}></div>
+        <div className="absolute bottom-[-20%] left-[20%] w-[60vw] h-[60vw] rounded-full bg-emerald-200/60 mix-blend-multiply filter blur-[120px] opacity-70 animate-pulse" style={{ animationDuration: '12s', animationDelay: '4s' }}></div>
       </div>
 
       <div className="relative z-10">
-        <Navbar onContactClick={() => setContactOpen(true)} onAdminClick={() => setAdminLoginOpen(true)} />
+        <Navbar onAdminClick={() => setAdminLoginOpen(true)} />
 
         {/* Hero Area */}
         <section className="pt-40 pb-24 px-6 lg:px-12 bg-transparent">
           <div className="max-w-[1400px] mx-auto grid lg:grid-cols-2 gap-16 items-center">
             <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }}>
-              <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] text-gray-400 mb-6 font-mono">
+              <p className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] text-slate-700 mb-6 font-mono">
                 TECHNICAL WORKFLOW
               </p>
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-8 leading-[0.9]">
-                <span className="text-gray-900 block">High-Fidelity</span>
-                <span className="text-gray-400 block mt-2">Semantic Analysis</span>
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tighter mb-8 leading-[0.9]">
+                <span className="text-slate-950 block">High-Fidelity</span>
+                <span className="text-slate-400 block mt-2 drop-shadow-sm">Semantic Analysis</span>
               </h1>
-              <p className="text-lg md:text-xl text-gray-500 max-w-xl leading-relaxed">
+              <p className="text-lg md:text-xl text-slate-800 max-w-xl leading-relaxed font-medium">
                 NexusScan AI utilizes a proprietary neural-static hybrid engine to dissect smart contracts with surgical precision. Transparency is not a feature, it is our architecture.
               </p>
             </motion.div>
@@ -123,11 +123,11 @@ const HowItWorks = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <div className="text-[#f1f5f9] font-bold text-8xl md:text-9xl tracking-tighter mb-4 -ml-2 select-none">
+              <div className="text-slate-100 font-extrabold text-8xl md:text-9xl tracking-tighter mb-4 -ml-2 select-none">
                 01
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">Submission</h2>
-              <p className="text-gray-500 text-lg leading-relaxed mb-10 max-w-lg">
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-950 mb-6 tracking-tight">Submission</h2>
+              <p className="text-slate-800 text-lg leading-relaxed mb-10 max-w-lg font-medium">
                 Input your Solidity or Vyper smart contracts directly into the Nexus gateway. Our system accepts raw code, GitHub repositories, or verified Ethereum addresses. The analysis layer performs an immediate syntax validation to ensure structural integrity before processing.
               </p>
               
@@ -163,12 +163,12 @@ const HowItWorks = () => {
               viewport={{ once: true }}
               className="order-2 lg:order-1"
             >
-              <div className="text-[#f1f5f9] font-bold text-8xl md:text-9xl tracking-tighter mb-4 -ml-2 select-none">
+              <div className="text-slate-100 font-extrabold text-8xl md:text-9xl tracking-tighter mb-4 -ml-2 select-none">
                 02
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">Neural Processing</h2>
-              <div className="w-16 h-1 bg-black mb-8"></div>
-              <p className="text-gray-500 text-lg leading-relaxed max-w-lg">
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-950 mb-6 tracking-tight">Neural Processing</h2>
+              <div className="w-16 h-1 bg-slate-900 mb-8"></div>
+              <p className="text-slate-800 text-lg leading-relaxed max-w-lg font-medium">
                 The core of NexusScan AI. Our LLM-powered engine goes beyond simple pattern matching. It constructs a dynamic control flow graph and applies semantic reasoning to identify logic flaws, reentrancy vectors, and complex economic exploits that traditional static analyzers miss.
               </p>
             </motion.div>
@@ -224,13 +224,13 @@ const HowItWorks = () => {
         </section>
 
         {/* 03 Report Generation */}
-        <section className="pt-32 pb-48 px-6 lg:px-12 bg-transparent border-t border-gray-100/50">
+        <section className="pt-32 pb-48 px-6 lg:px-12 bg-transparent border-t border-slate-100/50">
           <div className="max-w-[1200px] mx-auto text-center relative">
-            <div className="text-[#f1f5f9] font-bold text-8xl md:text-9xl tracking-tighter mb-4 select-none flex justify-center">
+            <div className="text-slate-100 font-extrabold text-8xl md:text-9xl tracking-tighter mb-4 select-none flex justify-center">
               03
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight relative z-10 -mt-10 md:-mt-16">Report Generation</h2>
-            <p className="text-gray-500 text-lg leading-relaxed max-w-2xl mx-auto mb-16 relative z-10">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-950 mb-6 tracking-tight relative z-10 -mt-10 md:-mt-16">Report Generation</h2>
+            <p className="text-slate-800 text-lg leading-relaxed max-w-2xl mx-auto mb-16 relative z-10 font-medium">
               High-fidelity results delivered in seconds. No PDF fluff—just pure, actionable intelligence formatted for developers and security teams.
             </p>
 
@@ -298,8 +298,8 @@ const HowItWorks = () => {
         {/* Deploy Call to Action */}
         <section className="py-24 px-6 bg-[#09090b]">
           <div className="max-w-4xl mx-auto text-center border-y border-white/5 py-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Deploy with Confidence</h2>
-            <p className="text-gray-400 mb-10 max-w-xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6">Deploy with Confidence</h2>
+            <p className="text-slate-400 mb-10 max-w-xl mx-auto font-medium">
               Join 500+ DeFi protocols that secure their smart contracts with NexusScan AI's surgical precision.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -307,7 +307,7 @@ const HowItWorks = () => {
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="px-8 py-3.5 bg-white text-black text-sm font-medium rounded-full min-w-[200px]"
+                  className="px-8 py-3.5 bg-white text-black text-sm font-bold rounded-full min-w-[200px]"
                 >
                   Start Scan
                 </motion.button>
@@ -315,7 +315,7 @@ const HowItWorks = () => {
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="px-8 py-3.5 bg-[#18181b] text-white border border-white/10 text-sm font-medium rounded-full min-w-[200px] hover:bg-[#27272a] transition-colors"
+                className="px-8 py-3.5 bg-[#18181b] text-white border border-white/10 text-sm font-bold rounded-full min-w-[200px] hover:bg-[#27272a] transition-colors"
               >
                 View Documentation
               </motion.button>

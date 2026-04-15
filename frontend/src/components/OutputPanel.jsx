@@ -122,14 +122,58 @@ const OutputPanel = ({ analysisData, isLoading }) => {
                           </div>
                         )}
                         {vuln.description && (
-                          <p className="text-sm text-gray-400 mb-3">
-                            🧠 {vuln.description}
-                          </p>
+                          <div className="text-sm text-gray-400 mb-4 bg-gray-900/50 p-3 rounded-lg border-l-2 border-blue-500">
+                            <span className="text-blue-400 font-bold mr-2">ANALYSIS:</span> {vuln.description}
+                          </div>
                         )}
+
+                        {vuln.impact && (
+                          <div className="text-xs text-orange-400/80 mb-4 px-3 py-2 bg-orange-950/20 rounded border border-orange-900/30">
+                            <span className="font-bold">⚠️ IMPACT:</span> {vuln.impact}
+                          </div>
+                        )}
+
+                        {vuln.attack_flow && vuln.attack_flow.length > 0 && (
+                          <div className="mb-4">
+                            <div className="text-[10px] uppercase tracking-widest text-gray-500 mb-2 font-bold">Attack Vector Flow</div>
+                            <div className="space-y-2">
+                              {vuln.attack_flow.map((step, sIdx) => (
+                                <div key={sIdx} className="flex gap-3 text-xs text-gray-400 items-start">
+                                  <span className="text-gray-600 font-mono">{sIdx + 1}.</span>
+                                  <span>{step}</span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+
+                        {vuln.simulation && vuln.simulation.length > 0 && (
+                          <div className="mb-4 bg-emerald-950/10 p-3 rounded-lg border border-emerald-900/20">
+                            <div className="text-[10px] uppercase tracking-widest text-emerald-500 mb-2 font-bold">Execution Simulation</div>
+                            <div className="space-y-2">
+                              {vuln.simulation.map((step, sIdx) => (
+                                <div key={sIdx} className="flex gap-3 text-xs text-emerald-400/80 items-start">
+                                  <span className="text-emerald-800 font-mono">#{sIdx + 1}</span>
+                                  <span>{step}</span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+
                         {vuln.recommendation && (
-                          <p className="text-sm text-green-400">
-                            🛠 Fix: {vuln.recommendation}
-                          </p>
+                          <div className="text-sm text-emerald-400 mb-4">
+                            <span className="font-bold">🛠 RECOMMENDATION:</span> {vuln.recommendation}
+                          </div>
+                        )}
+
+                        {vuln.code_fix && (
+                          <div className="mt-4">
+                            <div className="text-[10px] uppercase tracking-widest text-gray-500 mb-2 font-bold">Codified Security Patch</div>
+                            <pre className="bg-black/50 p-4 rounded-xl text-xs text-emerald-400/90 overflow-x-auto border border-emerald-900/30 font-mono">
+                              {vuln.code_fix}
+                            </pre>
+                          </div>
                         )}
                       </div>
                     </div>
