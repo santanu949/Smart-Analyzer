@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const CTASection = () => {
+const CTASection = ({ onContactClick }) => {
   return (
     // Added contrast-[1.10] for the 10% contrast bump
     <section className="py-20 px-6 lg:px-12 bg-transparent contrast-[1.10]" data-testid="cta-section">
@@ -56,6 +56,7 @@ const CTASection = () => {
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
+                onClick={onContactClick}
                 className="px-8 py-4 bg-transparent text-white font-semibold rounded-full border-2 border-gray-600 hover:border-gray-400 hover:bg-white/5 transition-colors"
                 data-testid="connect-us-cta-btn"
               >

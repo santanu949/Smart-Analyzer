@@ -2,29 +2,32 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="py-12 px-6 lg:px-12 bg-white border-t border-gray-200" data-testid="footer">
-      <div className="max-w-[1400px] mx-auto">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <div>
-            <div className="text-xl font-bold text-gray-900 mb-2">NexusScan AI</div>
-            <p className="text-xs text-gray-500">
-              © 2024 NEXUSSCAN AI. PRECISION INTELLIGENCE FOR THE DECENTRALIZED WEB.
+    <footer className="py-8 px-6 lg:px-12 bg-white border-t border-slate-100" data-testid="footer">
+      <div className="max-w-5xl mx-auto">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-0">
+          <div className="flex flex-col items-center md:items-start">
+            <div className="text-base font-bold text-slate-900 mb-1">NexusScan AI</div>
+            <p className="text-[10px] text-slate-400 font-medium tracking-widest">
+              © 2024 NEXUSSCAN AI. PRECISION INTELLIGENCE.
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-6 text-sm text-gray-600">
-            <a href="#security" className="hover:text-gray-900 transition-colors" data-testid="footer-security-link">
-              SECURITY AUDIT
-            </a>
-            <a href="#privacy" className="hover:text-gray-900 transition-colors" data-testid="footer-privacy-link">
-              PRIVACY POLICY
-            </a>
-            <a href="#status" className="hover:text-gray-900 transition-colors" data-testid="footer-status-link">
-              STATUS
-            </a>
-            <a href="#twitter" className="hover:text-gray-900 transition-colors" data-testid="footer-twitter-link">
-              TWITTER
-            </a>
+          <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-2">
+            {[
+              { id: 'security', label: 'SECURITY AUDIT' },
+              { id: 'privacy', label: 'PRIVACY POLICY' },
+              { id: 'status', label: 'STATUS' },
+              { id: 'twitter', label: 'TWITTER' }
+            ].map((link) => (
+              <a 
+                key={link.id}
+                href={`#${link.id}`} 
+                className="text-[10px] font-bold text-slate-500 hover:text-slate-900 transition-colors tracking-widest uppercase" 
+                data-testid={`footer-${link.id}-link`}
+              >
+                {link.label}
+              </a>
+            ))}
           </div>
         </div>
       </div>

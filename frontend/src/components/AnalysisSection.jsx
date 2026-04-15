@@ -13,7 +13,7 @@ const AnalysisSection = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const handleAnalyze = async (code) => {
+  const handleAnalyze = async (code, mode = 'groq') => {
     setIsLoading(true);
     setError(null);
     setAnalysisData(null);
@@ -21,16 +21,21 @@ const AnalysisSection = () => {
     try {
       const response = await axios.post(`${BACKEND_URL}/analyze`, {
         code: code,
+        mode: mode
       });
       
       // Remap backend response format to the frontend format expected by the new UI
       const mappedData = {
         summary: response.data.summary,
         vulnerabilities: response.data.vulnerabilities?.map(v => ({
-           severity: v.risk_level?.toUpperCase() || 'HIGH',
-           type: v.name || 'Unknown Issue',
+           severity: v.severity?.toUpperCase() || 'HIGH',
+           type: v.type || 'Unknown Issue',
            description: v.explanation || '',
-           recommendation: v.suggested_fix || '',
+           recommendation: v.fix || '',
+           attack_flow: v.attack_flow || [],
+           impact: v.impact || '',
+           code_fix: v.code_fix || '',
+           simulation: v.simulation || [],
            location: v.location || null
         })) || []
       };

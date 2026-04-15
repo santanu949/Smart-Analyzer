@@ -2,7 +2,7 @@ from fastapi import APIRouter, HTTPException
 from app.models.response_model import AnalysisRequest, AnalysisResponse, Vulnerability
 from app.services.llm_service import analyze_with_llm
 from app.services.slither_service import run_slither
-import json
+from app.services.knowledge_service import retrieve_knowledge
 
 router = APIRouter()
 
@@ -19,20 +19,42 @@ async def analyze_contract(request: AnalysisRequest):
         if slither_response.get("success"):
             slither_findings = json.dumps(slither_response.get("data", {}))
         else:
-            print(f"Slither failed or not installed, falling back to LLM exclusively: {slither_response.get('error')}")
-            # we just leave slither_findings as empty string so groq can handle it raw
+            print(f"Slither failed: {slither_response.get('error')}")
             
-        # Step 2: Use Groq LLM
-        vulnerabilities_data = await analyze_with_llm(request.code, slither_findings)
+        # Step 2: Knowledge Retrieval (RAG Mode Only)
+        knowledge_context = ""
+        actual_mode = request.mode
+        
+        if request.mode == "rag":
+            try:
+                knowledge_context = retrieve_knowledge(slither_findings)
+                if not knowledge_context:
+                    print("RAG: No specific knowledge found for these findings. Falling back to Groq.")
+                    actual_mode = "groq"
+            except Exception as rag_err:
+                print(f"RAG Retrieval failed: {rag_err}. Falling back to Groq.")
+                actual_mode = "groq"
+
+        # Step 3: Use Groq LLM
+        vulnerabilities_data = await analyze_with_llm(
+            request.code, 
+            slither_findings, 
+            mode=actual_mode, 
+            knowledge=knowledge_context
+        )
         
         # Format list into Response Model
         vulnerabilities = []
         for v in vulnerabilities_data:
             vuln = Vulnerability(
-                name=v.get("name", "Unknown Issue"),
-                explanation=v.get("explanation", "No explanation provided."),
-                risk_level=v.get("risk_level", "Medium"),
-                suggested_fix=v.get("suggested_fix", "Review code manually.")
+                type=v.get("type") or v.get("name") or "Unknown Issue",
+                severity=v.get("severity") or v.get("risk_level") or "Medium",
+                explanation=v.get("explanation") or v.get("description") or "No explanation provided.",
+                fix=v.get("fix") or v.get("suggested_fix") or "Review code manually.",
+                impact=v.get("impact"),
+                attack_flow=v.get("attack_flow"),
+                code_fix=v.get("code_fix"),
+                simulation=v.get("simulation")
             )
             vulnerabilities.append(vuln)
             

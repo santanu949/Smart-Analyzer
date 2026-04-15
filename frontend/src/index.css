@@ -6,7 +6,7 @@
 
 @layer base {
   body {
-    @apply antialiased text-zinc-900 bg-zinc-50;
+    @apply antialiased text-zinc-950 bg-white;
   }
 }
 
