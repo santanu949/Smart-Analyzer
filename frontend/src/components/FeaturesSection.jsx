@@ -35,18 +35,10 @@ const FeatureCard = ({ title, description, icon: Icon, index }) => {
         }}
       />
 
-      {/* Cyberpunk Scanlines Overlay */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.03] group-hover:opacity-[0.05] transition-opacity duration-500"
-           style={{
-             backgroundImage: 'linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06))',
-             backgroundSize: '100% 2px, 3px 100%'
-           }} 
-      />
-
-      {/* Subtle dotted grid matrix overlay inside cards */}
+      {/* Subtle dotted grid */}
       <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <div 
-          className="absolute inset-0" 
+        <div
+          className="absolute inset-0"
           style={{
             backgroundImage: 'radial-gradient(circle at 1.5px 1.5px, rgba(255,255,255,0.1) 1px, transparent 0)',
             backgroundSize: '24px 24px'
@@ -58,15 +50,15 @@ const FeatureCard = ({ title, description, icon: Icon, index }) => {
       <div className="absolute -top-24 -right-24 w-48 h-48 bg-blue-500/5 rounded-full blur-[80px] group-hover:bg-blue-500/10 transition-colors duration-500" />
 
       <div className="relative z-10 flex flex-col h-full">
-        {/* Vector Icon with Neon Accent */}
+        {/* Icon */}
         <div className="mb-6 inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gray-800/50 border border-gray-700 group-hover:border-blue-500/50 group-hover:bg-blue-500/5 transition-all duration-300">
-          <Icon className="w-7 h-7 text-gray-400 group-hover:text-blue-400 group-hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.5)] transition-all duration-300" />
+          <Icon className="w-7 h-7 text-gray-400 group-hover:text-blue-400 transition-all duration-300" />
         </div>
 
-        <h3 className="text-2xl font-bold text-white mb-5 tracking-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-blue-200 transition-all duration-300 drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+        <h3 className="text-2xl font-bold text-white mb-5 tracking-tight">
           {title}
         </h3>
-        <p className="text-base text-gray-400 leading-relaxed font-medium font-inter">
+        <p className="text-base text-gray-400 leading-relaxed font-medium">
           {description}
         </p>
       </div>
@@ -99,7 +91,7 @@ const FeaturesSection = () => {
   ];
 
   return (
-    <section className="py-24 px-6 lg:px-12 bg-transparent relative overflow-hidden font-inter" data-testid="features-section">
+    <section className="py-24 px-6 lg:px-12 bg-transparent relative overflow-hidden" data-testid="features-section">
       <div className="max-w-[1400px] mx-auto relative z-10">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((feature, index) => (

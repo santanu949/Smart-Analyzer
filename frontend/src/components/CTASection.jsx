@@ -3,8 +3,7 @@ import { motion } from 'framer-motion';
 
 const CTASection = ({ onContactClick }) => {
   return (
-    // Added contrast-[1.10] for the 10% contrast bump
-    <section className="py-20 px-6 lg:px-12 bg-transparent contrast-[1.10]" data-testid="cta-section">
+    <section className="py-20 px-6 lg:px-12 bg-transparent" data-testid="cta-section">
       <div className="max-w-[1400px] mx-auto">
         <div className="bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-[2.5rem] p-12 lg:p-20 text-center relative overflow-hidden border border-gray-800 shadow-2xl">
           {/* Background Pattern */}

@@ -13,27 +13,42 @@
 @layer components {
   /* Public Interface Components */
   .glass-panel {
-    @apply bg-white/40 backdrop-blur-2xl border border-white/20 shadow-[0_24px_48px_-12px_rgba(0,0,0,0.08)] rounded-2xl;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.08);
+    border-radius: 1rem;
   }
-  
+
   .public-container {
     @apply max-w-7xl mx-auto px-6 sm:px-8 lg:px-12;
   }
 
   /* Admin Dashboard Components / Tactical */
   .tactical-border {
-    @apply border border-tactical-border/20;
+    border: 1px solid rgba(0, 203, 230, 0.2);
   }
-  
+
   .tactical-glow {
-    @apply shadow-[inset_0_0_0_1px_rgba(0,203,230,0.2)];
+    box-shadow: inset 0 0 0 1px rgba(0, 203, 230, 0.2);
   }
 
   .tactical-text-glow {
-    text-shadow: 0 0 2px rgba(0,203,230,0.5);
+    text-shadow: 0 0 2px rgba(0, 203, 230, 0.5);
   }
 
   .admin-input {
-    @apply bg-tactical-containerHigh border-b border-tactical-border/20 text-brand-cyan placeholder:text-tactical-textDim focus:outline-none focus:border-brand-cyan shadow-[0_0_0_0px_rgba(0,203,230,0)] focus:shadow-[0_0_4px_0px_rgba(0,203,230,0.5)] transition-all duration-200 px-3 py-2 font-mono uppercase text-xs tracking-tactical;
+    @apply border-b text-xs font-mono uppercase tracking-widest outline-none transition-all duration-200 px-3 py-2;
+    background: transparent;
+    border-color: rgba(0, 203, 230, 0.2);
+    color: rgb(34, 211, 238);
+  }
+  .admin-input::placeholder {
+    color: rgba(148, 163, 184, 0.4);
+  }
+  .admin-input:focus {
+    border-color: rgb(6, 182, 212);
+    box-shadow: 0 0 4px 0 rgba(0, 203, 230, 0.4);
   }
 }
