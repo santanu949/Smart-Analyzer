@@ -328,13 +328,17 @@ Distributed under the MIT License. See [`LICENSE`](LICENSE) for more information
 
 ---
 
-## 👤 Author
+Team 
 
-**Arpit Singh (SOULBEA)**
+Santanu Samanta
 
-- GitHub: [@SOULBEA](https://github.com/SOULBEA)
-- Project: [Smart-Analyzer](https://github.com/SOULBEA/Smart-Analyzer)
+GitHub: @santanu949
+Project: Smart-Analyzer
 
+Arpit Singh (SOULBEA)
+
+GitHub: @SOULBEA
+Project: Smart-Analyzer
 ---
 
 <div align="center">
