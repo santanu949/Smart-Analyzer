@@ -30,7 +30,6 @@ const Navbar = ({ onAdminClick }) => {
 
           {/* Right Side Actions */}
           <div className="flex items-center gap-4" data-testid="nav-actions">
-            {/* Admin Login Button */}
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}

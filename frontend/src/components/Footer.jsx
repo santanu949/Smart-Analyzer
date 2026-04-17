@@ -15,14 +15,14 @@ const Footer = () => {
           <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-2">
             {[
               { id: 'security', label: 'SECURITY AUDIT' },
-              { id: 'privacy', label: 'PRIVACY POLICY' },
-              { id: 'status', label: 'STATUS' },
-              { id: 'twitter', label: 'TWITTER' }
+              { id: 'privacy',  label: 'PRIVACY POLICY' },
+              { id: 'status',   label: 'STATUS' },
+              { id: 'twitter',  label: 'TWITTER' },
             ].map((link) => (
-              <a 
+              <a
                 key={link.id}
-                href={`#${link.id}`} 
-                className="text-[10px] font-bold text-slate-500 hover:text-slate-900 transition-colors tracking-widest uppercase" 
+                href={`#${link.id}`}
+                className="text-[10px] font-bold text-slate-500 hover:text-slate-900 transition-colors tracking-widest uppercase"
                 data-testid={`footer-${link.id}-link`}
               >
                 {link.label}
