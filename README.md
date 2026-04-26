@@ -1,4 +1,4 @@
-# 🔐 Smart Analyzer — AI-Powered Smart Contract Security Auditor
+# 🔐 Smart Analyzer AI-Powered Smart Contract Security Auditor
 
 <div align="center">
 
@@ -331,13 +331,13 @@ Distributed under the MIT License. See [`LICENSE`](LICENSE) for more information
 Team 
 
 Santanu Samanta
-
 GitHub: @santanu949
+
 Project: Smart-Analyzer
 
 Arpit Singh (SOULBEA)
-
 GitHub: @SOULBEA
+
 Project: Smart-Analyzer
 ---
 
