@@ -333,7 +333,6 @@ Team
 Santanu Samanta
 GitHub: @santanu949
 
-Project: Smart-Analyzer
 
 Arpit Singh (SOULBEA)
 GitHub: @SOULBEA
@@ -344,7 +343,5 @@ Project: Smart-Analyzer
 <div align="center">
 
 **⭐ Star this repo if you found it useful!**
-
-*Built with ❤️ for the Web3 security community*
 
 </div>
