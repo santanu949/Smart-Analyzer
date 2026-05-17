@@ -1,4 +1,4 @@
-# 🔐 Smart Analyzer AI Powered Smart Contract Security Auditor
+#  Smart Analyzer AI Powered Smart Contract Security Auditor
 
 <div align="center">
 
