@@ -37,7 +37,7 @@
 | 📊 **Dynamic Security Scores** | Real-time vulnerability-weighted security scores (CRITICAL = -25, HIGH = -15, etc.) |
 | 🔴 **Attack Flow Visualization** | Step-by-step attack vector diagrams for each detected vulnerability |
 | 🟢 **Code Fix Suggestions** | Inline Solidity patches for every vulnerability found |
-| 🖥️ **Terminal Style UI** | Premium dark-mode interface with real-time runtime metrics |
+| 🖥️ **Terminal Style UI** | Premium dark mode interface with real-time runtime metrics |
 | 🔒 **Zero Data Retention** | Contracts are analyzed and never stored |
 
 ---
