@@ -32,7 +32,7 @@
 
 | Feature | Description |
 |---|---|
-| 🧠 **Neural Pattern Discovery** | LLM-powered engine detects reentrancy, overflow, access control flaws, and logic bugs that static scanners miss |
+| 🧠 **Neural Pattern Discovery** | LLM powered engine detects reentrancy, overflow, access control flaws, and logic bugs that static scanners miss |
 | ⚡ **Multi-Provider AI** | Switch between **Groq** (cloud, blazing fast), **Ollama** (local, private), or **RAG** mode |
 | 📊 **Dynamic Security Scores** | Real-time vulnerability-weighted security scores (CRITICAL = -25, HIGH = -15, etc.) |
 | 🔴 **Attack Flow Visualization** | Step-by-step attack vector diagrams for each detected vulnerability |
